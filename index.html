@@ -242,6 +242,13 @@ p{margin:0}
 .agehd .dot{width:40px;height:40px;border-radius:50%;background:var(--c);display:grid;place-items:center;box-shadow:var(--sticker);transition:transform .3s var(--pop)}
 .agehd .dot svg{width:21px;height:21px}
 .agehd small{font:400 13px/1 var(--body);color:var(--muted)}
+.agehd .agechar{width:64px;height:50px;overflow:visible;transform-origin:50% 95%;animation:charIdle 3.4s ease-in-out infinite;animation-delay:calc(var(--k,0) * -.7s)}
+.agehd:hover .agechar,.agehd.on .agechar{animation:charHop .7s var(--pop),charIdle 3.4s ease-in-out .7s infinite}
+.agehd.dim .agechar{animation-play-state:paused}
+@keyframes charIdle{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg) translateY(-2px)}}
+@keyframes charHop{0%{transform:none}35%{transform:translateY(-10px) scale(1.06,.96) rotate(-6deg)}65%{transform:translateY(0) scale(1.08,.9)}100%{transform:none}}
+.mtabs .agehd .agechar{width:46px;height:36px}
+
 .agehd:hover .dot{transform:rotate(-10deg) scale(1.1)}
 .agehd.on{box-shadow:0 0 0 3px var(--c),var(--sticker);transform:translateY(-3px)}
 .stephd{border:0;background:none;text-align:left;cursor:pointer;display:flex;align-items:center;gap:16px;padding:6px 6px 6px 8px;border-radius:18px;font:600 16px/1.2 var(--display);color:var(--ink);transition:background .2s}
@@ -1100,7 +1107,7 @@ footer>.edge{position:absolute;left:0;top:calc(1px - clamp(50px,7vw,90px))}
   let pick = { a: 2, s: 0 }, focus = null;
   $('gdotsA').innerHTML = AGES.map(a => `<i style="background:${a.c}"></i>`).join('');
   $('gdotsS').innerHTML = STEPS.map(x => `<i style="background:${x.sc}"></i>`).join('');
-  const ageBtn = (a, i, cls) => `<button type="button" class="agehd ${cls}" data-col="${i}" style="${vars(a)}" aria-label="Show every ${a.name} book"><span class="dot">${ic[a.icon]}</span>${a.name}<small>${a.age}</small></button>`;
+  const ageBtn = (a, i, cls) => `<button type="button" class="agehd ${cls}" data-col="${i}" style="${vars(a)};--k:${i}" aria-label="Show every ${a.name} book"><svg class="agechar" viewBox="8 26 104 80" aria-hidden="true">${ART[i](a.c)}</svg>${a.name}<small>${a.age}</small></button>`;
   const drawMap = () => {
     let h = '<div class="corner"></div>' + AGES.map((a, i) => ageBtn(a, i, (focus && focus.type === 'col' && focus.i === i ? 'on' : '') + (focus && focus.type === 'col' && focus.i !== i ? ' dim' : ''))).join('');
     STEPS.forEach((st, r) => {
