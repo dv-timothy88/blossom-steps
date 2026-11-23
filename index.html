@@ -871,7 +871,7 @@ footer>.edge{position:absolute;left:0;top:calc(1px - clamp(50px,7vw,90px))}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
         <div class="sub" id="sub"></div>
       </div>
-      <a href="#how">How it grows</a><a href="#parents">For parents</a><a href="#children">For children</a><a href="#articles">Articles</a>
+      <a href="#how">How it grows</a><a href="#parents">For parents</a><a href="#children">For children</a><a href="#articles-all">Articles</a>
     </nav>
     <a class="btn btn-sun" href="#start">Start your path</a>
     <div class="progress" aria-hidden="true"><i id="prog"></i></div>
@@ -1675,13 +1675,13 @@ footer>.edge{position:absolute;left:0;top:calc(1px - clamp(50px,7vw,90px))}
   const showView = book => {
     if (book) {
       const [r, c] = BOOKIDX[book];
-      homeV.hidden = true; bookpage.hidden = false; journalV.hidden = true; articleV.hidden = true;
+      homeV.hidden = true; bookpage.hidden = false; journalV.hidden = true; articleV.hidden = true; navOn(false);
       bookpage.style.animation = 'none'; void bookpage.offsetWidth; bookpage.style.animation = '';
       renderBook(r, c); pick = { a: c, s: r }; window.scrollTo(0, 0);
       return true;
     }
     if (homeV.hidden) {
-      homeV.hidden = false; bookpage.hidden = true; journalV.hidden = true; articleV.hidden = true; setMeta('Blossom Steps · Children’s books for every little step', HOME_DESC, null);
+      homeV.hidden = false; bookpage.hidden = true; journalV.hidden = true; articleV.hidden = true; navOn(false); setMeta('Blossom Steps · Children’s books for every little step', HOME_DESC, null);
       homeV.style.animation = 'none'; void homeV.offsetWidth; homeV.style.animation = '';
       focus = null; drawMap();
       const h = location.hash.slice(1), t = h && document.getElementById(h);
@@ -1690,7 +1690,8 @@ footer>.edge{position:absolute;left:0;top:calc(1px - clamp(50px,7vw,90px))}
     return false;
   };
   const HOME_DESC = (document.querySelector('meta[name="description"]') || { getAttribute: () => '' }).getAttribute('content');
-  const openPage = (el, fn) => { homeV.hidden = true; bookpage.hidden = true; journalV.hidden = el !== journalV; articleV.hidden = el !== articleV; el.style.animation = 'none'; void el.offsetWidth; el.style.animation = ''; fn(); window.scrollTo(0, 0); };
+  const navOn = on => document.querySelectorAll('.nav>a').forEach(x => x.classList.toggle('on', on && x.getAttribute('href') === '#articles-all'));
+  const openPage = (el, fn) => { navOn(true); homeV.hidden = true; bookpage.hidden = true; journalV.hidden = el !== journalV; articleV.hidden = el !== articleV; el.style.animation = 'none'; void el.offsetWidth; el.style.animation = ''; fn(); window.scrollTo(0, 0); };
   const route = () => {
     const h = location.hash.slice(1);
     if (h.startsWith('article-') && ARTIDX[h.slice(8)]) { openPage(articleV, () => renderArticle(h.slice(8))); return; }
