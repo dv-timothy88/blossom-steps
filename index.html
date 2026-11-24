@@ -121,7 +121,7 @@ p{margin:0}
 .hero h1 .w{display:inline-block;animation:wordPop .7s var(--pop) both;animation-delay:calc(var(--i) * .09s + .1s)}
 @keyframes wordPop{from{opacity:0;transform:translateY(30px) scale(.8) rotate(-4deg)}}
 .loopword{position:relative;white-space:nowrap;display:inline-block}
-.loopword svg{position:absolute;left:-4%;bottom:-.22em;width:108%;height:.42em;overflow:visible}
+.loopword svg{position:absolute;left:-4%;bottom:-.34em;width:108%;height:.42em;overflow:visible}
 .squiggle{fill:none;stroke:var(--cocoa);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
 .draw{stroke-dasharray:400;stroke-dashoffset:400;animation:draw 1.2s ease-out .75s forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
@@ -242,6 +242,7 @@ p{margin:0}
 .agehd .dot{width:40px;height:40px;border-radius:50%;background:var(--c);display:grid;place-items:center;box-shadow:var(--sticker);transition:transform .3s var(--pop)}
 .agehd .dot svg{width:21px;height:21px}
 .agehd small{font:400 13px/1 var(--body);color:var(--muted)}
+.agehd .ah-t{display:grid;gap:5px;justify-items:center}
 .agehd .agechar{width:64px;height:50px;overflow:visible;transform-origin:50% 95%;animation:charIdle 3.4s ease-in-out infinite;animation-delay:calc(var(--k,0) * -.7s)}
 .agehd:hover .agechar,.agehd.on .agechar{animation:charHop .7s var(--pop),charIdle 3.4s ease-in-out .7s infinite}
 .agehd.dim .agechar{animation-play-state:paused}
@@ -469,11 +470,11 @@ p{margin:0}
 }
 @media(max-width:700px){
   .bkd{display:none}
-  .mtabs{display:flex;gap:8px;overflow-x:auto;padding:4px 30px 10px 2px;margin-top:16px;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 86%,transparent);mask-image:linear-gradient(90deg,#000 86%,transparent)}
+  .mtabs{display:flex;gap:8px;overflow-x:auto;padding:10px 30px 14px 6px;margin-top:10px;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 86%,transparent);mask-image:linear-gradient(90deg,#000 86%,transparent)}
   .mtabs::-webkit-scrollbar,.tfilter::-webkit-scrollbar{display:none}
   .mtabs .agehd{flex:none;flex-direction:row;padding:6px 14px 6px 6px;font-size:15px;gap:6px;scroll-snap-align:start;min-height:48px}
-  .mtabs .agehd small{display:none}
-  .tfilter{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding:2px 30px 6px 2px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 86%,transparent);mask-image:linear-gradient(90deg,#000 86%,transparent)}.tchip{flex:none;min-height:40px}
+  .mtabs .agehd{text-align:left}.mtabs .agehd .ah-t{display:grid;gap:3px;justify-items:start}.mtabs .agehd small{display:block;font-size:11.5px}
+  .tfilter{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding:6px 30px 8px 4px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 86%,transparent);mask-image:linear-gradient(90deg,#000 86%,transparent)}.tchip{flex:none;min-height:40px}
   .bk.sel .bkx{display:grid;grid-template-columns:minmax(0,1fr) 84px;column-gap:14px;align-items:start;margin-top:10px;font:400 14.5px/1.5 var(--body);color:var(--muted)}
   .bkx .bkxt{grid-column:1;grid-row:1}.bkx .bkgo{grid-column:1;grid-row:2;justify-self:start}.bkx .bkxi{grid-column:2;grid-row:1 / span 2}
   .gdots{display:none}.guide{flex-wrap:nowrap}.gstep{padding-right:14px}
@@ -499,13 +500,12 @@ p{margin:0}
 .bcx .bkgo{display:table}
 .cover.xs{position:relative;flex:none;width:68px;padding:6px 6px 6px 10px;border-radius:4px 10px 10px 4px;margin:0 -6px;animation:none;box-shadow:inset 3px 0 0 rgba(62,42,32,.18),0 8px 14px -8px rgba(62,42,32,.5);transform:rotate(calc((var(--k) - 2) * 7deg));transition:transform .35s var(--pop)}
 .cover.xs:nth-child(1),.cover.xs:nth-child(5){margin-bottom:-10px}.cover.xs:nth-child(2),.cover.xs:nth-child(4){margin-bottom:-3px}
-.cover.xs:nth-child(3){z-index:2}.cover.xs:nth-child(2),.cover.xs:nth-child(4){z-index:1}
 .cover.xs .ci{height:50px}.cover.xs img{max-height:44px;border-radius:4px}
 .cover.xs b{font-size:8px;line-height:1.15;height:19px;margin-top:4px}
-.cover.xs i{position:absolute;top:-8px;right:-6px;background:var(--sc);box-shadow:0 0 0 2px var(--raised);z-index:1}
+.cover.xs i{position:absolute;top:-10px;left:50%;margin-left:-10px;background:var(--sc);box-shadow:0 0 0 2px var(--raised);z-index:1}
 .bc-fan .cover.xs,.bstack .cover.xs{animation:fanIn .55s var(--pop) both;animation-delay:calc(var(--k) * .06s)}
 @keyframes fanIn{from{opacity:0;transform:translateY(20px) rotate(0)}}
-.bstack .cover.xs{width:78px;margin:0 -12px}
+.bstack .cover.xs{width:70px;margin:0 -10px}
 .bstack .cover.xs:hover{transform:translateY(-12px) rotate(0);z-index:3}
 .bkd.isbundle{gap:6px}
 .bkd.isbundle .swap{width:100%}
@@ -528,7 +528,14 @@ p{margin:0}
 .cdots button.on{width:26px;background:var(--cocoa)}
 html,body{overflow-x:clip}
 body.menu-open .dock{opacity:0;pointer-events:none;transform:translateY(30px)}
-.dock{transition:width .4s var(--pop),padding .3s,opacity .25s,transform .3s}
+.dock{transition:width .4s var(--pop),padding .3s,opacity .25s,transform .3s;zoom:.8;
+  background:linear-gradient(115deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 62%,rgba(255,255,255,.3) 86%,rgba(255,255,255,0) 100%),rgba(255,255,255,.62);
+  -webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) saturate(1.7);border:1px solid rgba(255,255,255,.85);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),inset 0 -1px 1px rgba(255,255,255,.35),0 14px 34px -14px rgba(110,75,56,.42)}
+.dock .mini{background:rgba(255,255,255,.7);border-color:rgba(110,75,56,.18)}
+.dock .prog{background:rgba(110,75,56,.12)}
+.dock.small .mini{background:rgba(255,255,255,.92)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.dock{background:rgba(255,255,255,.96)}}
 @media(hover:none){.bk:hover,.card:hover,.petal:hover,.acard:hover,.bundlecard:hover,.kids .bk:hover{transform:none}.card:hover .pic img,.acard:hover .ashot img,.petal:hover .ppic img{transform:none}}
 
 .tips li{gap:14px;padding:14px 14px 22px;text-align:center}
@@ -551,7 +558,7 @@ body.menu-open .dock{opacity:0;pointer-events:none;transform:translateY(30px)}
 .sunf .sf-head{transform-box:fill-box;transform-origin:50% 50%;animation:sfNod 4.2s ease-in-out infinite;animation-delay:var(--sd,0s)}
 @keyframes sfSway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
 @keyframes sfNod{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(8deg) scale(1.04)}}
-.garden{position:absolute;left:0;right:0;bottom:0;height:150px;pointer-events:none;z-index:0;overflow:hidden}
+.garden{position:absolute;left:0;right:0;bottom:0;height:178px;pointer-events:none;z-index:0;overflow:hidden}
 .garden .sunf{position:absolute;bottom:14px}
 .garden .grass{position:absolute;left:0;bottom:0;width:100%;height:40px}
 footer .garden .sunf:hover{animation-duration:1s}
@@ -561,7 +568,7 @@ footer .garden .sunf:hover{animation-duration:1s}
 @keyframes bflyFly{0%,100%{transform:translate(0,0) rotate(-6deg)}25%{transform:translate(60px,-30px) rotate(8deg)}50%{transform:translate(120px,-6px) rotate(-4deg)}75%{transform:translate(50px,10px) rotate(6deg)}}
 @keyframes flutter{to{transform:scaleX(.55)}}
 
-@media(max-width:700px){.garden .hide-m{display:none}.garden{height:120px}}
+@media(max-width:700px){.garden .hide-m{display:none}.garden{height:178px}}
 
 /* articles: cards, library and article page */
 .acard .abody{flex:1;gap:10px}
@@ -760,7 +767,7 @@ a.atag{text-decoration:none;transition:background .2s}a.atag:hover{background:va
 @keyframes burst{from{transform:translate(0,0) scale(.3);opacity:1}to{transform:translate(var(--x),var(--y)) scale(1.1) rotate(90deg);opacity:0}}
 
 /* footer */
-footer{position:relative;z-index:1;background:var(--sunken);padding:24px 0 176px}
+footer{position:relative;z-index:1;background:var(--sunken);padding:24px 0 196px}
 footer>.wrap{position:relative;z-index:1}
 .eyebrow svg{animation:eyeBob 3s ease-in-out infinite;transform-origin:50% 80%}
 .eyebrow:hover svg{animation:dotJig .6s var(--pop)}
@@ -850,7 +857,7 @@ footer>.edge{position:absolute;left:0;top:calc(1px - clamp(50px,7vw,90px))}
   .btn{width:100%;justify-content:center}.cta{flex-direction:column}
   .badge{width:92px;height:92px;font-size:21px;right:-4px}
   .pcard .shot{height:220px}.pcard .shot img{max-height:192px}
-  .dock{right:12px;left:12px;bottom:12px;width:auto}
+  .dock{right:12px;left:auto;bottom:12px;width:340px;max-width:calc(125vw - 30px)}
   .dock.small{left:auto;width:64px;padding:6px}
   .dock.small .mini{right:auto;left:-10px;top:-10px}
   .dock.small .disc-art{display:none}
@@ -1354,7 +1361,7 @@ footer>.edge{position:absolute;left:0;top:calc(1px - clamp(50px,7vw,90px))}
   let pick = { a: 2, s: 0 }, focus = null, bundle = false;
   $('gdotsA').innerHTML = AGES.map(a => `<i style="background:${a.c}"></i>`).join('');
   $('gdotsS').innerHTML = STEPS.map(x => `<i style="background:${x.sc}"></i>`).join('');
-  const ageBtn = (a, i, cls) => `<button type="button" class="agehd ${cls}" data-col="${i}" style="${vars(a)};--k:${i}" aria-label="Show the ${a.name} bundle: every book from step 1 to 5"><svg class="agechar" viewBox="8 26 104 80" aria-hidden="true">${ART[i](a.c)}</svg>${a.name}<small>${a.age}</small></button>`;
+  const ageBtn = (a, i, cls) => `<button type="button" class="agehd ${cls}" data-col="${i}" style="${vars(a)};--k:${i}" aria-label="Show the ${a.name} bundle: every book from step 1 to 5"><svg class="agechar" viewBox="8 26 104 80" aria-hidden="true">${ART[i](a.c)}</svg><span class="ah-t">${a.name}<small>${a.age}</small></span></button>`;
   const miniCovers = (c, cls) => STEPS.map((st, r) => `<span class="cover xs ${cls || ''}" style="--k:${r};--sc:${st.sc}" aria-hidden="true"><i>${r + 1}</i><span class="ci"><img src="img/${coverOf(r, c)}" alt="" loading="lazy"></span><b>${BOOKS[r][c][0]}</b></span>`).join('');
   const bundleCard = c => {
     const a = AGES[c];
