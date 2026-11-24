@@ -668,6 +668,28 @@ a.atag{text-decoration:none;transition:background .2s}a.atag:hover{background:va
 .sub a:hover,.sub a.on{background:rgba(255,255,255,.6)}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.bar:before{background:rgba(255,255,255,.96)}.sub{background:#fff}}
 @media(max-width:1060px){.sub{background:rgba(255,255,255,.5);-webkit-backdrop-filter:none;backdrop-filter:none}.sub a:hover,.sub a.on{background:rgba(255,255,255,.75)}}
+
+@keyframes jelly{0%,100%{transform:scale(1)}30%{transform:scale(1.12,.9)}50%{transform:scale(.94,1.08)}70%{transform:scale(1.04,.97)}}
+/* footer hover fun */
+.foot-grid .flogo{display:block;width:max-content}
+.foot-grid .flogo img{height:120px;width:auto}
+.flogo .blogo{transition:transform .35s var(--pop)}
+.flogo:hover .blogo{transform:translateY(-4px) rotate(-3deg)}
+.fwave{cursor:default;display:block;width:max-content}
+.fwave span span{display:inline-block;transition:color .2s}
+.fwave:hover span span{animation:fwave .7s var(--pop) both;animation-delay:calc(var(--i) * .03s);color:var(--ink)}
+@keyframes fwave{0%,100%{transform:none}40%{transform:translateY(-7px) rotate(-6deg)}70%{transform:translateY(1px)}}
+.foot-grid h3{display:inline-block;transition:transform .3s var(--pop)}
+.foot-grid div:hover>h3{animation:jelly .7s var(--pop)}
+.foot-grid ul a{position:relative;display:inline-block;padding:2px 0;transition:transform .3s var(--pop),color .2s}
+.foot-grid ul a:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:3px;border-radius:3px;background:var(--sun);transform:scaleX(0);transform-origin:0 50%;transition:transform .35s var(--pop)}
+.foot-grid ul a:before{content:"";position:absolute;left:-16px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--sun);transform:scale(0);transition:transform .3s var(--pop)}
+.foot-grid ul a:hover,.foot-grid ul a:focus-visible{transform:translateX(8px);text-decoration:none}
+.foot-grid ul a:hover:after,.foot-grid ul a:focus-visible:after{transform:scaleX(1)}
+.foot-grid ul a:hover:before,.foot-grid ul a:focus-visible:before{transform:scale(1)}
+.legal span{display:inline-block;transition:transform .3s var(--pop),color .2s}
+.legal span:hover{transform:translateY(-3px);color:var(--ink)}
+@media(hover:none){.foot-grid ul a:hover{transform:none}}
 /* moments */
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:48px;align-items:start}
 .card{position:relative;background:var(--raised);border:1px solid var(--line);border-radius:24px;overflow:hidden;transition:transform .3s var(--pop),box-shadow .3s}
@@ -778,7 +800,7 @@ footer>.edge{position:absolute;left:0;top:calc(1px - clamp(50px,7vw,90px))}
 .foot-grid img{height:120px;width:auto}
 .foot-grid h3{font-size:17px;margin-bottom:10px}
 .foot-grid ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
-.foot-grid a{color:var(--ink);text-decoration:none;font-size:16px}.foot-grid a:hover{text-decoration:underline}
+.foot-grid a{color:var(--ink);text-decoration:none;font-size:16px}.foot-grid a:hover{text-decoration:none}
 .legal{border-top:1px solid var(--line);margin-top:36px;padding-top:20px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px;color:var(--muted)}
 
 /* reveal */
@@ -1124,7 +1146,7 @@ footer>.edge{position:absolute;left:0;top:calc(1px - clamp(50px,7vw,90px))}
   <svg class="edge" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 C 200 20, 380 70, 640 44 C 900 18, 1160 76, 1440 40 L1440 90 L0 90 Z" fill="#f6eedd"/></svg>
   <div class="wrap">
     <div class="foot-grid">
-      <div><img src="img/logo.png" alt="Blossom Steps" width="218" height="240" loading="lazy"><p class="hand" style="margin-top:10px;font-size:22px">little steps, big blooms</p></div>
+      <div><a class="brand flogo" href="#home" aria-label="Blossom Steps, back to the top"><span class="blogo"><img class="bl-word" src="img/logo-word.png" alt="Blossom Steps" width="218" height="240" loading="lazy"><img class="bl-heart" src="img/logo-heart.png" alt="" width="218" height="240" loading="lazy"></span></a><p class="hand fwave" style="margin-top:10px;font-size:22px" aria-label="little steps, big blooms"><span aria-hidden="true"><span style="--i:0">l</span><span style="--i:1">i</span><span style="--i:2">t</span><span style="--i:3">t</span><span style="--i:4">l</span><span style="--i:5">e</span><span style="--i:6">&nbsp;</span><span style="--i:7">s</span><span style="--i:8">t</span><span style="--i:9">e</span><span style="--i:10">p</span><span style="--i:11">s</span><span style="--i:12">,</span><span style="--i:13">&nbsp;</span><span style="--i:14">b</span><span style="--i:15">i</span><span style="--i:16">g</span><span style="--i:17">&nbsp;</span><span style="--i:18">b</span><span style="--i:19">l</span><span style="--i:20">o</span><span style="--i:21">o</span><span style="--i:22">m</span><span style="--i:23">s</span></span></p></div>
       <div><h3>Shop by age</h3><ul id="footages"></ul></div>
       <div><h3>Explore</h3><ul><li><a href="#how">How it grows</a></li><li><a href="#parents">For parents</a></li><li><a href="#children">For children</a></li><li><a href="#moments">Little moments</a></li><li><a href="#articles-all">Articles</a></li></ul></div>
       <div><h3>Say hello</h3><ul><li><a href="#start">Join the family</a></li><li><a href="#home">Back to the top ↑</a></li></ul></div>
