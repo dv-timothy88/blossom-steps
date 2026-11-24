@@ -740,7 +740,8 @@ a.atag{text-decoration:none;transition:background .2s}a.atag:hover{background:va
 .dock .prog i{display:block;height:100%;width:0;background:var(--sun);border-radius:5px}
 .dock .mini{flex:none;width:36px;height:36px;border-radius:50%;border:2px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;display:grid;place-items:center}
 .dock .mini:hover{border-color:var(--cocoa);color:var(--ink)}
-.dock .mini svg{width:16px;height:16px;transition:transform .3s var(--pop)}
+.dock .mini svg{position:absolute;left:50%;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;transition:transform .3s var(--pop)}
+.dock .mini{position:relative;padding:0}
 .dock .disc-art{position:absolute;left:-14px;top:-18px;width:40px;animation:bob 3.2s ease-in-out infinite;pointer-events:none}
 .dock.playing .disc-art{animation:dance .9s ease-in-out infinite alternate}
 @keyframes dance{from{transform:rotate(-10deg) translateY(0)}to{transform:rotate(10deg) translateY(-6px)}}
@@ -861,7 +862,7 @@ footer>.edge{position:absolute;left:0;top:calc(1px - clamp(50px,7vw,90px))}
   .dock.small{left:auto;width:64px;padding:6px}
   .dock.small .mini{right:auto;left:-10px;top:-10px}
   .dock.small .disc-art{display:none}
-  .dock.small .mini svg{position:absolute;left:50%;top:50%;margin:-8px 0 0 -8px;transform:none}
+  .dock.small .mini svg{transform:none}
 }
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
